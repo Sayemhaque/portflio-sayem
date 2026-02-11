@@ -6,4 +6,4 @@
 :HL["/portflio-sayem/_next/static/media/d23f31b94ad01e54-s.p.4b0b0c7e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/portflio-sayem/_next/static/media/d622c970823c5a32-s.p.0b73bd18.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css","style",{"crossOrigin":"anonymous","integrity":"sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==","referrerPolicy":"no-referrer"}]
-0:{"tree":{"name":"","param":null,"hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","param":null,"hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300,"buildId":"wOhf2cvdsLMSZGDei27lF"}
+0:{"tree":{"name":"","param":null,"hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","param":null,"hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300,"buildId":"UZpdt8QSEtz4rPlu2Z_xT"}
