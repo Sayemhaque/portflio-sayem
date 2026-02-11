@@ -1,13 +1,20 @@
-import { Roboto_Condensed } from "next/font/google";
+import { Bangers, Rajdhani } from "next/font/google";
 import Script from "next/script";
 import Cursor from "../components/Cursor";
 import SmoothScroll from "../components/SmoothScroll";
 import "./globals.css";
 
-const roboto = Roboto_Condensed({
+const bangers = Bangers({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-roboto",
+  weight: ["400"],
+  variable: "--font-bangers",
+  display: "swap",
+});
+
+const rajdhani = Rajdhani({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-rajdhani",
   display: "swap",
 });
 
@@ -28,7 +35,7 @@ export default function RootLayout({ children }) {
           referrerPolicy='no-referrer'
         />
       </head>
-      <body className={roboto.className}>
+      <body className={`${bangers.variable} ${rajdhani.variable} font-body`}>
         <SmoothScroll>
           <Cursor />
           {children}

@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
-import HeroImg from "./../images/profile-pic (9).png";
+import HeroImg from "./../images/hero-img.jpeg";
 
 const Hero = () => {
   const container = useRef();
@@ -14,7 +14,9 @@ const Hero = () => {
     () => {
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-      tl.from(titleRef.current.children, {
+      const textElements = titleRef.current.querySelectorAll("p, h1");
+
+      tl.from(textElements, {
         y: 100,
         opacity: 0,
         duration: 1.2,
@@ -70,8 +72,8 @@ const Hero = () => {
 
           <div className='hero-btn pt-8 flex gap-6'>
             <a
-              href='/assets/mdsayemResume.pdf'
-              download='Resume'
+              href='/assets/md-sayem-mia-resume.pdf'
+              download='md-sayem-mia-resume'
               className='group relative px-8 py-4 bg-white text-black font-bold uppercase tracking-wider overflow-hidden'>
               <span className='relative z-10 group-hover:text-white transition-colors duration-300'>
                 Download CV

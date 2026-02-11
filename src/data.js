@@ -1,10 +1,16 @@
-import geometriImg from "./images/Annotation 2023-09-22 140326.png";
-import AiUniverseImg from "./images/Annotation 2023-09-22 145802.png";
-import WriteOnImg from "./images/Annotation 2023-09-22 150228.png";
-import JobLioImg from "./images/Annotation 2023-09-22 153408.png";
-import shaporiItalianoImg from "./images/recipe-app.png";
-import sportifyImg from "./images/sportify-camp(2).png";
-import toyCastleImg from "./images/toy-castle.png";
+// Vasha Academy Image
+import vashaImg from "./images/vasha-academy/vasha.png";
+
+// Academy Suite Admin Images
+import companySettingsAdmin from "./images/admin-app/company-settings-admin.png";
+import dashboardAdmin from "./images/admin-app/dashboard-admin.png";
+import usersAdmin from "./images/admin-app/users-admin.png";
+
+// Tarsheed Academy Images
+import tarsheedCourses from "./images/tarshee-academy/courses.png";
+import tarsheedEnrolled from "./images/tarshee-academy/enrolled-dashboard.png";
+import tarsheedPayment from "./images/tarshee-academy/payment-papge.png";
+import tarsheedHero from "./images/tarshee-academy/tarsheed-hero.png";
 
 export const frontedSkills = [
   { id: 1, name: "Html5" },
@@ -52,119 +58,60 @@ export const tools = [
 
 export const projects = [
   {
-    id: 1,
-    title: "Sapori Italiano",
-    img: shaporiItalianoImg,
-    end: "MERN STACK",
+    id: 101,
+    title: "Academy Suite Admin",
+    images: [dashboardAdmin, usersAdmin, companySettingsAdmin],
+    stack: "React / Vite (Admin)",
     details:
-      "This single-page application implements dynamic routing and Firebase authentication.The Chef Details page is protected,accessible only to logged-in users.Image performance optimization is achieved using react-lazy-load. Express.js is utilized for backend functionality, and dummy JSON data is obtained from the backend.",
+      "The comprehensive Admin Dashboard for the multi-tenant Academy Suite SaaS. It manages the platform's extensive capabilities: \n" +
+      "• Live Class Integration: Google Meet and Zoom support.\n" +
+      "• Payments: SSLCommerz & Stripe integration with dynamic currency support.\n" +
+      "• Analytics: PostHog, Meta Pixel, and Google Analytics integration.\n" +
+      "• Customization: Dynamic user app page content management.\n" +
+      "• Video Hosting: Integrated with Gotipath.",
     tech: [
-      "React Js",
-      "Tailwind css",
-      "DaisyUi",
-      "React Router Dom",
-      "Express js",
-      "MongoDB",
-      "Firebase",
-      "React-Lazy-Image",
-    ],
-    liveLink: "https://repice-app-6cac9.web.app/",
-    githubLinkClient: "https://github.com/Sayemhaque/chef-website",
-    githubLinkServer: "https://github.com/Sayemhaque/chef-website-backend",
-  },
-  {
-    id: 2,
-    title: "TOY Castle",
-    img: toyCastleImg,
-    stack: "MERN STACK",
-    details:
-      "Toy Castle is a MERN full-stack web app with Firebase authentication. Users can register to access all features, including adding toys, updating/deleting their toys, and searching toys by name on the All Toys page.",
-    tech: [
-      "React Js",
-      "Tailwind css",
-      "DaisyUi",
-      "React Router Dom",
-      "Express js",
-      "MongoDB",
-      "Firebase",
-      "React Tabs",
-      "react-toastify",
-    ],
-    liveLink: "https://toy-castle-409e5.web.app/",
-    githubLinkClient: "https://github.com/Sayemhaque/toy-castle-client",
-    githubLinkServer: "https://github.com/Sayemhaque/toy-castle-server",
-  },
-  {
-    id: 3,
-    title: "Sportify Camp",
-    img: sportifyImg,
-    stack: "MERN STACK",
-    details:
-      "Sportify is a feature-rich web app for sports enthusiasts. It offers JWT authorization, role-based routing, admin/instructor panels, Firebase authentication, and Stripe payment integration. Users can connect, explore sports classes, and make secure online payments.",
-    tech: [
-      "React Js",
-      "Tailwind css",
-      "DaisyUi",
-      "Axios",
-      "React Router Dom",
-      "Express js",
-      "MongoDB",
-      "JWT",
-      "Firebase",
-      "React Tabs",
-      "react-toastify",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Gotipath",
       "Stripe",
-      "react-hook-form",
-      "react-responsive-carousel",
-      "react-simple-typewriter",
-      "sweetalert2",
+      "SSLCommerz",
+      "MySQL",
+      "Drizzle ORM",
     ],
-    liveLink: "https://sportify-app-35c1c.web.app/",
-    githubLinkClient: "https://github.com/Sayemhaque/sportify-camp",
-    githubLinkServer: "https://github.com/Sayemhaque/sportify-camp-backend",
+    liveLink: "#",
+    githubLinkClient: null,
+    githubLinkServer: null,
   },
   {
-    id: 4,
-    title: "Geometri Genious",
-    img: geometriImg,
-    stack: "Javascript",
-    details: "Different area calculation using javascirpt DOM manupulation",
-    tech: ["HTML", "CSS", "Javascript", "DOM"],
-    liveLink: "https://geometri-genious.netlify.app/",
-    githubLinkClient: "https://geometri-genious.netlify.app/",
-    githubLinkServer: "https://geometri-genious.netlify.app/",
+    id: 102,
+    title: "Vasha Academy",
+    images: [vashaImg],
+    stack: "Next.js",
+    details:
+      "A dedicated tenant on the Academy Suite platform focused on language learning. Features a custom premium design with a focus on student engagement, live class integration, and interactive quizzes.",
+    tech: ["Next.js 14", "React", "Tailwind CSS", "Gotipath", "TypeScript"],
+    liveLink: "https://vasha.ac/en",
+    githubLinkClient: null,
+    githubLinkServer: null,
   },
   {
-    id: 5,
-    title: "Ai Universe",
-    img: AiUniverseImg,
-    stack: "Javascript",
-    details: "Dynamic Javascript website using Api",
-    tech: ["HTML", "CSS", "Javascript", "Api"],
-    liveLink: "https://ai-universe-hubb.netlify.app/",
-    githubLinkClient: "https://ai-universe-hubb.netlify.app/",
-    githubLinkServer: "https://ai-universe-hubb.netlify.app/",
-  },
-  {
-    id: 6,
-    title: "Write On",
-    img: WriteOnImg,
-    stack: "ReactJs",
-    details: "User can add blog to bookmark and aslo can read time.",
-    tech: ["HTML", "CSS", "ReactJs", "Api", "Hooks"],
-    liveLink: "https://write-onn.netlify.app/",
-    githubLinkClient: "https://write-onn.netlify.app/",
-    githubLinkServer: "https://write-onn.netlify.app/",
-  },
-  {
-    id: 7,
-    title: "Job Lio",
-    img: JobLioImg,
-    stack: "ReactJs",
-    details: "Apply jobs and jobs will store in Local Storeage.",
-    tech: ["HTML", "CSS", "ReactJs", "Api", "Hooks", "Local Storage"],
-    liveLink: "https://write-onn.netlify.app/",
-    githubLinkClient: "https://write-onn.netlify.app/",
-    githubLinkServer: "https://write-onn.netlify.app/",
+    id: 103,
+    title: "Tarsheed Academy",
+    images: [tarsheedHero, tarsheedCourses, tarsheedEnrolled, tarsheedPayment],
+    stack: "Next.js 16",
+    details:
+      "An educational platform built on the newest stack (Next.js 16). Features a streamlined admin interface, BunnyCDN integration for high-performance video delivery, and authorized exam management. Focuses on Islamic education and guidance.",
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "Tailwind CSS",
+      "BunnyCDN",
+      "Vite (Admin)",
+      "PostgreSQL",
+    ],
+    liveLink: "https://tarsheedacademy.com/bn",
+    githubLinkClient: null,
+    githubLinkServer: null,
   },
 ];

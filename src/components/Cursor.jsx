@@ -38,7 +38,19 @@ const Cursor = () => {
         yToFollower(e.clientY);
       };
 
+      const onTouchMove = (e) => {
+        if (e.touches.length > 0) {
+          const touch = e.touches[0];
+          xTo(touch.clientX);
+          yTo(touch.clientY);
+          xToFollower(touch.clientX);
+          yToFollower(touch.clientY);
+        }
+      };
+
       window.addEventListener("mousemove", onMouseMove);
+      window.addEventListener("touchmove", onTouchMove);
+      window.addEventListener("touchstart", onTouchMove);
 
       // Add hover effect for links and buttons
       const hoverables = document.querySelectorAll(
@@ -70,6 +82,8 @@ const Cursor = () => {
 
       return () => {
         window.removeEventListener("mousemove", onMouseMove);
+        window.removeEventListener("touchmove", onTouchMove);
+        window.removeEventListener("touchstart", onTouchMove);
         hoverables.forEach((el) => {
           el.removeEventListener("mouseenter", onMouseEnter);
           el.removeEventListener("mouseleave", onMouseLeave);
@@ -83,11 +97,11 @@ const Cursor = () => {
     <>
       <div
         ref={cursorRef}
-        className='fixed top-0 left-0 w-3 h-3 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block' // Hidden on mobile
+        className='fixed top-0 left-0 w-3 h-3 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference' // Visible on all screens
       />
       <div
         ref={followerRef}
-        className='fixed top-0 left-0 w-12 h-12 border border-white/30 rounded-full pointer-events-none z-[9998] transition-colors duration-300 hidden md:block'
+        className='fixed top-0 left-0 w-12 h-12 border border-white/30 rounded-full pointer-events-none z-[9998] transition-colors duration-300' // Visible on all screens
       />
     </>
   );

@@ -8,15 +8,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#0a0a0a",
+        background: "#05020a", // Deep Dark Void
         foreground: "#ededed",
-        primary: "#e11d48", // A robust aesthetic accent (example: pink/rose)
-        secondary: "#27272a", // Zinc 800
-        accent: "#ffffff",
+        primary: "#FF007F", // Electric Pink
+        secondary: "#1a0b2e", // Void Purple
+        accent: "#00F0FF", // Cyber Cyan
       },
       fontFamily: {
-        heading: ["var(--font-roboto)", "sans-serif"],
-        body: ["var(--font-roboto)", "sans-serif"],
+        heading: ["var(--font-bangers)", "cursive"],
+        body: ["var(--font-rajdhani)", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

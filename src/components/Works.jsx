@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { projects } from "../data";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +11,14 @@ gsap.registerPlugin(ScrollTrigger);
 const Works = () => {
   const container = useRef(null);
   const [activeProject, setActiveProject] = useState(null);
+  const [imageIndex, setImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageIndex((prev) => prev + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   useGSAP(
     () => {
@@ -93,21 +101,44 @@ const Works = () => {
                   {project.details}
                 </p>
 
+                {/* Mobile Image Carousel */}
+                <div className='block md:hidden w-full aspect-video relative mb-10 overflow-hidden rounded-lg border border-white/10 bg-zinc-900/50'>
+                  {project.images.map((img, i) => (
+                    <img
+                      key={i}
+                      src={img.src}
+                      alt={project.title}
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                        imageIndex % project.images.length === i
+                          ? "opacity-100"
+                          : "opacity-0"
+                      }`}
+                    />
+                  ))}
+                  {/* Overlay for depth */}
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent'></div>
+                </div>
+
                 <div className='flex gap-6'>
-                  <a
-                    href={project.liveLink}
-                    target='_blank'
-                    rel='noreferrer'
-                    className='flex items-center gap-3 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-white hover:text-black transition-all duration-300'>
-                    <ExternalLink size={18} /> Live Site
-                  </a>
-                  <a
-                    href={project.githubLinkClient}
-                    target='_blank'
-                    rel='noreferrer'
-                    className='flex items-center gap-3 px-6 py-3 border border-white/20 text-white rounded-full font-medium hover:border-white hover:bg-white/5 transition-all duration-300'>
-                    <Github size={18} /> Code
-                  </a>
+                  {project.liveLink && project.liveLink !== "#" && (
+                    <a
+                      href={project.liveLink}
+                      target='_blank'
+                      rel='noreferrer'
+                      className='flex items-center gap-3 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-white hover:text-black transition-all duration-300'>
+                      <ExternalLink size={18} /> Live Site
+                    </a>
+                  )}
+                  {project.githubLinkClient &&
+                    project.githubLinkClient !== "#" && (
+                      <a
+                        href={project.githubLinkClient}
+                        target='_blank'
+                        rel='noreferrer'
+                        className='flex items-center gap-3 px-6 py-3 border border-white/20 text-white rounded-full font-medium hover:border-white hover:bg-white/5 transition-all duration-300'>
+                        <Github size={18} /> Code
+                      </a>
+                    )}
                 </div>
               </div>
             ))}
@@ -140,13 +171,18 @@ const Works = () => {
                   activeProject === index ? "opacity-100 z-10" : "opacity-0 z-0"
                 }`}>
                 <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10' />
-                <img
-                  src={project.img.src}
-                  alt={project.title}
-                  className={`w-full h-full object-cover transition-transform duration-[1.5s] ease-out ${
-                    activeProject === index ? "scale-100" : "scale-110"
-                  }`}
-                />
+                {project.images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img.src}
+                    alt={project.title}
+                    className={`absolute inset-0 w-full h-full object-contain transition-all duration-1000 ease-in-out ${
+                      imageIndex % project.images.length === i
+                        ? "opacity-100"
+                        : "opacity-0"
+                    } ${activeProject === index ? "scale-100" : "scale-110"}`}
+                  />
+                ))}
 
                 {/* Floating Details on Image? Optional, maybe just keep clean */}
               </div>

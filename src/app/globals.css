@@ -3,41 +3,135 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
+  --background: #05020a;
   --foreground: #ededed;
+  --primary: #ff007f;
+  --accent: #00f0ff;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-roboto), sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   overflow-x: hidden;
-  cursor: none; /* For custom cursor if desired, or standard */
+  cursor: default; /* Default cursor for touch devices */
 }
 
-/* Custom Scrollbar */
+@media (pointer: fine) {
+  body {
+    cursor: none; /* Hide default cursor only on devices with a fine pointer (mouse) */
+  }
+}
+
+/* Anime Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #05020a;
+  border-left: 1px solid #1a0b2e;
 }
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+  background: var(--primary);
+  border-radius: 0; /* Sharp edges for anime feel */
+  border: 1px solid #fff;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--accent);
 }
 
-.text-gradient {
-  background: linear-gradient(to right, #fff, #999);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Typography & Text Effects */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-bangers), cursive;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
+}
+
+.text-stroke-primary {
+  -webkit-text-stroke: 1px var(--primary);
+  color: transparent;
+}
+
+.anime-text-glow {
+  text-shadow:
+    0 0 10px var(--primary),
+    0 0 20px var(--primary);
+}
+
+.anime-text-glow-accent {
+  text-shadow:
+    0 0 10px var(--accent),
+    0 0 20px var(--accent);
+}
+
+/* UI Elements */
+.anime-border {
+  position: relative;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+  border: 1px solid var(--primary); /* Fallback */
+}
+
+/* We can't really do pseudo-elements easily with just a class on the element itself for borders if we use clip-path on the parent, 
+   so usually we wrap or use specific structures. For now, let's keep it simple. */
+
+.anime-button {
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-rajdhani);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+}
+
+.anime-button:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 20px var(--accent);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: rgba(26, 11, 46, 0.6);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Speed Lines Background Utility */
+.bg-speed-lines {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba(255, 255, 255, 0.03) 50px,
+    rgba(255, 255, 255, 0.03) 51px
+  );
 }
