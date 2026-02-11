@@ -22,6 +22,7 @@ export const frontedSkills = [
   { id: 7, name: "Tailwind css" },
   { id: 8, name: "Next js" },
   { id: 9, name: "React Native" },
+  { id: 10, name: "TypeScript" },
 ];
 
 export const backednSkills = [
@@ -78,6 +79,7 @@ export const projects = [
       "SSLCommerz",
       "MySQL",
       "Drizzle ORM",
+      "TypeScript",
     ],
     liveLink: "#",
     githubLinkClient: null,
@@ -109,6 +111,7 @@ export const projects = [
       "BunnyCDN",
       "Vite (Admin)",
       "PostgreSQL",
+      "TypeScript",
     ],
     liveLink: "https://tarsheedacademy.com/bn",
     githubLinkClient: null,
